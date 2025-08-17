@@ -22,7 +22,7 @@ Ele permite:
 
 1. Clone o repositório:
    ```
-   git clone https://github.com/vanessa91/indicadores_dados.git
+   git clone https://github.com/VanessaCosta91/indicadores_dados.git
    cd indicadores_dados
     ```
    
