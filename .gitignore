@@ -1,0 +1,26 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Banco de dados local
+*.db
+*.sqlite3
+
+# Configurações do IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Pastas de build
+instance/
+*.egg-info/
+dist/
+build/

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block titulo %} Perfil • Simulador de KPIs {% endblock %}
+
+{% block content %}
+<h1 class="h4 mb-3">Olá, {{ usuario.nome_usuario }}</h1>
+<div>
+    <h2 class="h5 mb-0">Suas companhias: </h2>
+    <a class="btn btn-primary" href="{{ url_for('cadastrar_companhias') }}">Cadastrar companhia</a>
+</div>
+
+{% if companhias %}
+    <div class="list-group">
+       {% for c in companhias %}
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+             <div>
+                 <div class="fw-semibold">{{ c.nome_companhia }}</div>
+                 <small class="text-muted">{{ c.setor }}</small>
+             </div>
+            <a class="btn btn-outline-secondary" href="{{ url_for('simulador', id_companhia=c.id) }}">Entrar</a>
+        </div>
+        {% endfor %}
+     </div>
+{% else %}
+    <div class="alert alert-info">
+    Você ainda não cadastrou nenhuma companhia.
+    Clique em <strong>Cadastrar companhia</strong> para criar a primeira.
+   </div>
+{% endif %}
+{% endblock %}

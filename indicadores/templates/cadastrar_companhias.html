@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Cadastrar Companhia • Simulador de KPIs{% endblock %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h1 class="h5 mb-3">Cadastrar nova companhia</h1>
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <div class="mb-3">
+        {{ form.nome_companhia.label(class="form-label") }}
+        {{ form.nome_companhia(class="form-control") }}
+      </div>
+      <div class="mb-3">
+        {{ form.setor.label(class="form-label") }}
+        {{ form.setor(class="form-control") }}
+      </div>
+      {{ form.botao_confirmacao(class="btn btn-primary") }}
+      <a class="btn btn-link" href="{{ url_for('perfil', id_usuario=current_user.id) }}">
+        Voltar
+      </a>
+    </form>
+  </div>
+</div>
+{% endblock %}

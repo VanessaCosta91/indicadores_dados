@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Simulador - {{ companhia.nome_companhia }}</h2>
+  <p><strong>Setor:</strong> {{ companhia.setor }}</p>
+
+  <h4 class="mt-4">Indicadores Gerados</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Indicador</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ind in indicadores %}
+      <tr>
+        <td>{{ ind.nome }}</td>
+        <td>R$ {{ ind.valor }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h4 class="mt-4">Visualização</h4>
+  <canvas id="graficoIndicadores"></canvas>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('graficoIndicadores').getContext('2d');
+  const grafico = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{ indicadores | map(attribute='nome') | list | tojson }},
+      datasets: [{
+        label: 'Valores',
+        data: {{ indicadores | map(attribute='valor') | list | tojson }},
+        backgroundColor: ['#36a2eb', '#ff6384', '#4bc0c0']
+      }]
+    }
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titulo %} Login • Simulador de KPIs {% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h1 class="h4 mb-3"> Entrar </h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control", placeholder="seu@email.com") }}
+            </div>
+            <div class="mb-3">
+                {{ form.senha.label(class="form-label") }}
+                {{ form.senha(class="form-control", placeholder="••••••") }}
+            </div>
+            {{  form.botao_confirmacao(class="btn btn-primary") }}
+        </form>
+         <hr>
+        <p class="mb-0">
+            <a href="{{ url_for('criarconta') }}"> </a>
+        </p>
+    </div>
+</div>
+{% endblock %}

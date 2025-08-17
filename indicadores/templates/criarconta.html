@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %} Criar Conta • Simulador de KPIs {% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h1 class="h4 mb-3"> Crie sua conta </h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
+            {% for erro in form.email.errors %}
+               <div class="text-danger">{{ erro }}</div>
+            {% endfor %}
+            </div>
+            <div class="mb-3">
+            {{ form.nome_usuario.label(class="form-label") }}
+            {{ form.nome_usuario(class="form-control") }}
+            </div>
+            <div class="mb-3">
+            {{ form.senha.label(class="form-label") }}
+            {{ form.senha(class="form-control") }}
+            </div>
+            <div class="mb-3">
+            {{ form.confirmar_senha.label(class="form-label") }}
+            {{ form.confirmar_senha(class="form-control") }}
+            </div>
+            {{ form.botao_confirmacao(class="btn btn-success") }}
+        </form>
+        <hr>
+        <p class="mb-0">Já tem conta?
+      <a href="{{ url_for('homepage') }}">Fazer login</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
