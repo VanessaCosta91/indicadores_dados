@@ -41,20 +41,7 @@ Ele permite:
     ```
     python main.py
     ```
-
----
-
-## Deploy no Render
-
-1. Suba o código no GitHub com requirements.txt e Procfile.
-2. Vá em Render, crie um New Web Service.
-3. Conecte seu repositório GitHub.
-4. No campo "Start Command", use:
-     ```
-    gunicorn main:app
-     ```
-5. Render vai instalar as dependências e rodar seu app.
-
+   
 ---
 
 ## Autora

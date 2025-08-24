@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, FloatField, Form
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError, Length
 from indicadores.models import Usuario
-from wtforms.widgets import NumberInput
+
 
 class FormLogin(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
